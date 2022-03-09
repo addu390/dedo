@@ -10,9 +10,6 @@ class User(AbstractUser):
 
 
 class Trip(models.Model):
-    """
-    Trip model
-    """
     REQUESTED = 'REQUESTED'
     STARTED = 'STARTED'
     IN_PROGRESS = 'IN_PROGRESS'

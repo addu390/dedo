@@ -4,7 +4,7 @@ from .serializers import NestedTripSerializer, TripSerializer
 from channels.db import database_sync_to_async
 
 
-class TaxiConsumer(AsyncWebsocketConsumer):
+class DriverConsumer(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def _get_user_group(self, user):
@@ -24,17 +24,10 @@ class TaxiConsumer(AsyncWebsocketConsumer):
         return map(str, trip_ids)
 
     async def connect(self):
-        """
-        connect with web socket
-        :return:
-        """
         user = self.scope['user']
         if user.is_anonymous:
             await self.close()
         else:
-            """
-            Add user in driver group
-            """
             user_group = await self._get_user_group(user)
             if user_group == 'driver':
                 await self.channel_layer.group_add(
@@ -53,11 +46,6 @@ class TaxiConsumer(AsyncWebsocketConsumer):
         await self.send_json(message)
 
     async def disconnect(self, code):
-        """
-        disconnect with web socket
-        :param code:
-        :return:
-        """
         user = self.scope['user']
         user_group = await self._get_user_group(user)
         if user_group == 'driver':
@@ -76,16 +64,6 @@ class TaxiConsumer(AsyncWebsocketConsumer):
         await super().disconnect(code)
 
     async def receive_json(self, content, **kwargs):
-        """
-        The receive_json() function is responsible for processing all messages that come to the server. Our message is
-        an object with a type and a data payload.
-        Passing a type is a Channels convention that serves two purposes. First, it helps differentiate incoming
-        messages and tells the server how to process them. Second, the type maps directly to a consumer function when
-        sent from another channel layer.
-        :param content:
-        :param kwargs:
-        :return:
-        """
         message_type = content.get('type')
         if message_type == 'create.trip':
             await self.create_trip(content)
@@ -97,7 +75,6 @@ class TaxiConsumer(AsyncWebsocketConsumer):
         trip = await self._create_trip(data)
         trip_data = NestedTripSerializer(trip).data
 
-        # Send rider requests to all drivers.
         await self.channel_layer.group_send(group='drivers', message={
             'type': 'echo.message',
             'data': trip_data
