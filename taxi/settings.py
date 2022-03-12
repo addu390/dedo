@@ -17,7 +17,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels',
     'rest_framework',
     'core'
 ]
@@ -32,7 +31,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tuktuk.urls'
+ROOT_URLCONF = 'taxi.urls'
 
 TEMPLATES = [
     {
@@ -50,7 +49,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tuktuk.wsgi.application'
+WSGI_APPLICATION = 'taxi.wsgi.application'
 
 DATABASES = {
     'default': {
@@ -62,8 +61,6 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
-ASGI_APPLICATION = 'tuktuk.routing.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -79,17 +76,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379')
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [REDIS_URL],
-        },
-    },
-}
 
 LANGUAGE_CODE = 'en-us'
 

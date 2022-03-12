@@ -4,3 +4,5 @@ mysqlclient==2.1.0
 gunicorn==20.1.0
 python-decouple==3.6
 channels~=3.0.4
+googlemaps==4.6.0
+requests==2.27.1

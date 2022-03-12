@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from rest_framework import generics, permissions, viewsets
+from rest_framework import generics, permissions
 from . import serializers, models
 from rest_framework_simplejwt.views import TokenObtainPairView
 
@@ -13,7 +13,11 @@ class LoginApiView(TokenObtainPairView):
     serializer_class = serializers.LoginSerializer
 
 
-class TripApiView(generics.ListAPIView):
+class TripStartView(TokenObtainPairView):
+    serializer_class = serializers.TripSerializer
+
+
+class TripApiView(generics.CreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     queryset = models.Trip.objects.all()
     serializer_class = serializers.TripSerializer

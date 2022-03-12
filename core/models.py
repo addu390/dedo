@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 import uuid
-from tuktuk import settings
+from taxi import settings
 from django.shortcuts import reverse
 
 
@@ -14,24 +14,17 @@ class Trip(models.Model):
     STARTED = 'STARTED'
     IN_PROGRESS = 'IN_PROGRESS'
     COMPLETED = 'COMPLETED'
-    STATUSES = (
-        (REQUESTED, REQUESTED),
-        (STARTED, STARTED),
-        (IN_PROGRESS, IN_PROGRESS),
-        (COMPLETED, COMPLETED),
-    )
+    STATUSES = ((REQUESTED, REQUESTED), (STARTED, STARTED), (IN_PROGRESS, IN_PROGRESS), (COMPLETED, COMPLETED))
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    pick_up_address = models.CharField(max_length=255)
-    drop_off_address = models.CharField(max_length=255)
-    rider = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.DO_NOTHING,
-                              related_name="trips_as_rider")
+    source_address = models.CharField(max_length=255)
+    destination_address = models.CharField(max_length=255)
+    passenger = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.DO_NOTHING,
+                                  related_name="trip_passenger")
     driver = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.DO_NOTHING,
-                               related_name="trips_as_driver")
-    status = models.CharField(
-        max_length=100, choices=STATUSES, default=REQUESTED
-    )
+                               related_name="trip_driver")
+    status = models.CharField(max_length=100, choices=STATUSES, default=REQUESTED)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return "{}".format(self.id)
