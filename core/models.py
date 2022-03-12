@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractUser
-from django.db import models
+from django.contrib.gis.db import models
 import uuid
 from taxi import settings
 from django.shortcuts import reverse
@@ -17,7 +17,9 @@ class Trip(models.Model):
     STATUSES = ((REQUESTED, REQUESTED), (STARTED, STARTED), (IN_PROGRESS, IN_PROGRESS), (COMPLETED, COMPLETED))
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     source_address = models.CharField(max_length=255)
+    source_location = models.PointField(null=True)
     destination_address = models.CharField(max_length=255)
+    destination_location = models.PointField(null=True)
     passenger = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.DO_NOTHING,
                                   related_name="trip_passenger")
     driver = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.DO_NOTHING,
