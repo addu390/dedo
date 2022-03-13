@@ -1,10 +1,11 @@
 from django.contrib import admin
 from .models import Trip, User
+from .constants import STARTED
 from leaflet.admin import LeafletGeoAdmin
 
 
 def start_ride(modeladmin, request, queryset):
-    queryset.update(status='STARTED')
+    queryset.update(status=STARTED)
 
 
 class UserAdmin(LeafletGeoAdmin):
