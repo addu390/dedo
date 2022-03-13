@@ -37,11 +37,14 @@ python3 -m pip install -r requirements.txt
 
 ## Start PostgreSQL Server
 
-`docker run --name=postgis -d -e POSTGRES_USER=<database-username> -e POSTGRES_PASS=<database-password> -e POSTGRES_DBNAME=<database-name> -p 5432:5432 kartoza/postgis:14-3.2`
+```
+docker run --name=postgis -d -e POSTGRES_USER=<database-username> -e POSTGRES_PASS=<database-password> -e POSTGRES_DBNAME=<database-name> -p 5432:5432 kartoza/postgis:14-3.2
+```
 
 ## Migrations
 
 - Run migrations:
+
 ```
 python3 manage.py makemigrations
 python3 manage.py migrate
