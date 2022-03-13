@@ -4,7 +4,7 @@ from .models import User
 from .constants import AVAILABLE, DRIVER
 
 
-def assign_driver(latitude, longitude, radius):
+def get_available_drivers(latitude, longitude, radius):
     point = Point(latitude, longitude)
     drivers = User.objects \
         .filter(current_location__distance_lt=(point, Distance(km=radius))) \

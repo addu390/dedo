@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Trip, User
 from .constants import ASSIGNED, BUSY
 from leaflet.admin import LeafletGeoAdmin
-from .service import assign_driver
+from .service import get_available_drivers
 
 
 def start_ride(modeladmin, request, queryset):
@@ -11,7 +11,7 @@ def start_ride(modeladmin, request, queryset):
     for trip in trips:
         latitude = trip.source_location.coords[0]
         longitude = trip.source_location.coords[1]
-        drivers = assign_driver(latitude, longitude, radius)
+        drivers = get_available_drivers(latitude, longitude, radius)
         if len(drivers) > 0:
             driver = drivers[0]
             User.objects.filter(id=driver.id).update(status=BUSY)
