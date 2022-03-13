@@ -3,14 +3,11 @@ from django.contrib.gis.db import models
 import uuid
 from taxi import settings
 from django.shortcuts import reverse
-from .constants import USER_TRIP_STATUS, TRIP_STATUS, AVAILABLE, REQUESTED
+from .constants import USER_TRIP_STATUS, TRIP_STATUS, USER_TYPE, AVAILABLE, REQUESTED, PASSENGER
 
 
 class User(AbstractUser):
-    DRIVER = 'DRIVER'
-    PASSENGER = 'PASSENGER'
-    TYPES = ((DRIVER, DRIVER), (PASSENGER, PASSENGER))
-    type = models.CharField(max_length=100, choices=TYPES, default=PASSENGER)
+    type = models.CharField(max_length=100, choices=USER_TYPE, default=PASSENGER)
     current_location = models.PointField(null=True)
     status = models.CharField(max_length=100, choices=USER_TRIP_STATUS, default=AVAILABLE)
 

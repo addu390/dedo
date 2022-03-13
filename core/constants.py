@@ -13,3 +13,9 @@ BUSY = 'BUSY'
 
 USER_TRIP_STATUS = ((AVAILABLE, "Available for ride"),
                     (BUSY, "In Flight"))
+
+DRIVER = 'DRIVER'
+PASSENGER = 'PASSENGER'
+
+USER_TYPE = ((DRIVER, "Driver"),
+             (PASSENGER, "Passenger"))
