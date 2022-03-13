@@ -1,9 +1,11 @@
 REQUESTED = 'REQUESTED'
+ASSIGNED = 'ASSIGNED'
 STARTED = 'STARTED'
 IN_PROGRESS = 'IN_PROGRESS'
 COMPLETED = 'COMPLETED'
 
 TRIP_STATUS = ((REQUESTED, "Trip Requested"),
+               (ASSIGNED, "Driver Assigned"),
                (STARTED, "Trip Started"),
                (IN_PROGRESS, "Trip In-progress"),
                (COMPLETED, "Trip Completed"))

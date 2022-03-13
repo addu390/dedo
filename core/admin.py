@@ -1,11 +1,21 @@
 from django.contrib import admin
 from .models import Trip, User
-from .constants import STARTED
+from .constants import ASSIGNED, BUSY
 from leaflet.admin import LeafletGeoAdmin
+from .service import assign_driver
 
 
 def start_ride(modeladmin, request, queryset):
-    queryset.update(status=STARTED)
+    trips = queryset
+    radius = 20
+    for trip in trips:
+        latitude = trip.source_location.coords[0]
+        longitude = trip.source_location.coords[1]
+        drivers = assign_driver(latitude, longitude, radius)
+        if len(drivers) > 0:
+            driver = drivers[0]
+            User.objects.filter(id=driver.id).update(status=BUSY)
+            queryset.update(driver=driver, status=ASSIGNED)
 
 
 class UserAdmin(LeafletGeoAdmin):

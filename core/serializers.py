@@ -41,7 +41,6 @@ class LoginSerializer(TokenObtainPairSerializer):
 
 
 class TripSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = models.Trip
         fields = "__all__"
