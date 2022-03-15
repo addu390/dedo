@@ -7,15 +7,17 @@ from .service import get_available_drivers
 
 def start_ride(modeladmin, request, queryset):
     trips = queryset
-    radius = 20
+    radius = [3, 5, 10, 17, 25]
     for trip in trips:
         latitude = trip.source_location.coords[0]
         longitude = trip.source_location.coords[1]
-        drivers = get_available_drivers(latitude, longitude, radius)
-        if len(drivers) > 0:
-            driver = drivers[0]
-            User.objects.filter(id=driver.id).update(status=BUSY)
-            queryset.update(driver=driver, status=ASSIGNED)
+        for r in radius:
+            drivers = get_available_drivers(latitude, longitude, r)
+            if len(drivers) > 0:
+                driver = drivers[0]
+                User.objects.filter(id=driver.id).update(status=BUSY)
+                queryset.update(driver=driver, status=ASSIGNED)
+                break
 
 
 class UserAdmin(LeafletGeoAdmin):
