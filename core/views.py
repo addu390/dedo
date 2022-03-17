@@ -18,7 +18,9 @@ class TripRequest(TokenObtainPairView):
     serializer_class = TripSerializer
 
 
-class TripList(generics.CreateAPIView):
+class TripList(generics.RetrieveAPIView):
+    lookup_field = 'source_user'
+    lookup_url_kwarg = 'user_id'
     permission_classes = (permissions.IsAuthenticated,)
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
