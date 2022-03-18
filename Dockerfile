@@ -1,30 +1,18 @@
-# pull official base image
-FROM python:3.9.6-alpine
+FROM ubuntu:20.04
+ADD . /app
+WORKDIR /app
 
-# set work directory
-WORKDIR /usr/src/app
+RUN apt-get update -y
+RUN apt-get install software-properties-common -y
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get install python3.9 -y
+RUN apt-get install python3-pip -y
+RUN python3.9 -m pip install --upgrade setuptools
+RUN apt-get install sudo ufw build-essential libpq-dev libmysqlclient-dev python3.9-dev default-libmysqlclient-dev libpython3.9-dev -y
+RUN apt-get sudo gdal-bin libgdal-dev python3-gdal binutils libproj-dev
 
-# set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+RUN python3.9 -m pip install -r requirements.txt
 
-# install psycopg2 dependencies
-RUN apk update \
-    && apk add postgresql-client postgresql-dev zlib-dev jpeg-dev gcc geos proj gdal binutils python3-dev musl-dev
+RUN sudo ufw allow 8000
 
-RUN apk add --no-cache \
-        geos \
-        proj \
-        gdal \
-        binutils \
-    && ln -s /usr/lib/libproj.so.15 /usr/lib/libproj.so \
-    && ln -s /usr/lib/libgdal.so.20 /usr/lib/libgdal.so \
-    && ln -s /usr/lib/libgeos_c.so.1 /usr/lib/libgeos_c.so
-
-# install dependencies
-RUN pip install --upgrade pip
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt
-
-# copy project
-COPY . .
+EXPOSE 8000

@@ -7,8 +7,25 @@
 ## The Solution
 <img src="./images/solution.png" width="60%">
 
+## Installation (Docker)
 
-## Installation
+- Install Docker and run `docker-compose up`
+
+- Run migrations: 
+
+```
+docker-compose exec web python3.9 manage.py makemigrations core
+docker-compose exec web python3.9 manage.py migrate
+```
+
+- Create Super User: 
+
+```
+docker-compose exec web python3.9 manage.py createsuperuser
+```
+
+
+## Installation (Local Set-up)
 
 - Install `virtualenv` ([Reference](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/))
 
@@ -35,13 +52,11 @@ source env/bin/activate
 python3 -m pip install -r requirements.txt
 ```
 
-## Start PostgreSQL Server
+- Start PostgreSQL Server
 
 ```
 docker run --name=postgis -d -e POSTGRES_USER=<database-username> -e POSTGRES_PASS=<database-password> -e POSTGRES_DBNAME=<database-name> -p 5432:5432 kartoza/postgis:14-3.2
 ```
-
-## Migrations
 
 - Run migrations:
 
@@ -50,7 +65,6 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
-## Start Server
-
-- Create a new file `.env` at the root of the project with the contents of `.env.example` with the correct values.
-- Start Development Server: `python3 manage.py runserver`
+- Start Server
+    - Create a new file `.env` at the root of the project with the contents of `.env.example` with the correct values.
+    - Start Development Server: `python3 manage.py runserver`
