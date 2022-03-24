@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "94a1c3eb-6f0d-4d20-b0f9-0e6e50d50477",
+		"name": "Dedo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"linda_george\",\n    \"password1\": \"7X7GpojdpqbR\",\n    \"password2\": \"7X7GpojdpqbR\",\n    \"first_name\": \"Linda\",\n    \"email\": \"linda.george@xmail.com\",\n    \"last_name\": \"George\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/signup",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"linda_george\",\n    \"password\": \"7X7GpojdpqbR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token Refresh",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTQ2NzYxLCJpYXQiOjE2NDgxNDY0NjEsImp0aSI6IjRlNWNmOTJhZGZkODQ5YTVhNmJjZmU1MTM0MThkZjhjIiwiaWQiOjMsImtleSI6IkRvZSJ9.EdfXoXcNv6_eszhQYGrJ4K3srodULfXzSUOgHfGxif8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh\": \"<refresh-token>\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/token/refresh",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"token",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Trip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU1NjcyLCJpYXQiOjE2NDgxNTUzNzIsImp0aSI6IjYwNmRlN2Y4NWQzZjRkOWE4ZmY3YjhmZmZiN2Q1MjZmIiwiaWQiOjEsImtleSI6IkFWQUlMQUJMRSJ9.QzLWR4ZnJEFYctYAPkhz-qjnPcb07MgwQU_PA8eB94w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"REQUESTED\",\n    \"source_address\": \"1328 Robie Street, Halifax, Canada\",\n    \"destination_address\": \"5165, Hollis Street, Halifax, Canada\",\n    \"source_location\": {\"type\":\"Point\",\"coordinates\":[-63.586518,44.637895]},\n    \"destination_location\": {\"type\":\"Point\",\"coordinates\":[-63.586518,44.637895]},\n    \"destination_user\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/trip",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Current Location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU1NjcyLCJpYXQiOjE2NDgxNTUzNzIsImp0aSI6IjYwNmRlN2Y4NWQzZjRkOWE4ZmY3YjhmZmZiN2Q1MjZmIiwiaWQiOjEsImtleSI6IkFWQUlMQUJMRSJ9.QzLWR4ZnJEFYctYAPkhz-qjnPcb07MgwQU_PA8eB94w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"current_location\": {\n        \"type\": \"Point\",\n        \"coordinates\": [-123.0208, 44.0464]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/current-location",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"current-location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Trips",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU1NjcyLCJpYXQiOjE2NDgxNTUzNzIsImp0aSI6IjYwNmRlN2Y4NWQzZjRkOWE4ZmY3YjhmZmZiN2Q1MjZmIiwiaWQiOjEsImtleSI6IkFWQUlMQUJMRSJ9.QzLWR4ZnJEFYctYAPkhz-qjnPcb07MgwQU_PA8eB94w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/v1/trips",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Trip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU1NjcyLCJpYXQiOjE2NDgxNTUzNzIsImp0aSI6IjYwNmRlN2Y4NWQzZjRkOWE4ZmY3YjhmZmZiN2Q1MjZmIiwiaWQiOjEsImtleSI6IkFWQUlMQUJMRSJ9.QzLWR4ZnJEFYctYAPkhz-qjnPcb07MgwQU_PA8eB94w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/v1/trip/90163196-9599-4243-9ef1-368989ec3b60",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"trip",
+						"90163196-9599-4243-9ef1-368989ec3b60"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
