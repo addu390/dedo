@@ -9,7 +9,7 @@ RUN apt-get install python3.9 -y
 RUN apt-get install python3-pip -y
 RUN python3.9 -m pip install --upgrade setuptools
 RUN apt-get install sudo ufw build-essential libpq-dev libmysqlclient-dev python3.9-dev default-libmysqlclient-dev libpython3.9-dev -y
-RUN apt-get sudo gdal-bin libgdal-dev python3-gdal binutils libproj-dev
+RUN apt-get install sudo gdal-bin libgdal-dev python3-gdal binutils libproj-dev -y
 
 RUN python3.9 -m pip install -r requirements.txt
 
