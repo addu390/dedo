@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from . import models
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -10,9 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = (
-            'id', 'username', 'password1', 'password2', 'first_name', 'last_name'
-        )
+        fields = ('id', 'username', 'password1', 'password2', 'email', 'first_name', 'last_name', 'type', 'status')
         read_only_fields = ('id',)
 
     def validate(self, attrs):
@@ -29,6 +28,14 @@ class UserSerializer(serializers.ModelSerializer):
         return self.Meta.model.objects.create_user(**data)
 
 
+class UserLocationSerializer(GeoFeatureModelSerializer):
+
+    class Meta:
+        model = models.User
+        geo_field = "current_location"
+        fields = ('current_location', )
+
+
 class LoginSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
@@ -41,9 +48,11 @@ class LoginSerializer(TokenObtainPairSerializer):
 
 
 class TripSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = models.Trip
-        fields = "__all__"
+        fields = ("id", "status", "source_address", "destination_address", "source_location", "destination_location",
+                  "source_user", "destination_user")
         read_only_fields = ('id', 'created', 'updated',)
 
 

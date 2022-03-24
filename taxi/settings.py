@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'leaflet',
     'rest_framework',
+    'rest_framework_gis',
     'core'
 ]
 
@@ -54,7 +55,7 @@ TEMPLATES = [
 ]
 
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (44.638569, -63.586262),
+        'DEFAULT_CENTER': (44.638569, -63.586262),
     'DEFAULT_ZOOM': 18,
     'MAX_ZOOM': 20,
     'MIN_ZOOM': 3,

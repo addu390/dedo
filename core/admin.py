@@ -21,7 +21,7 @@ def start_ride(modeladmin, request, queryset):
 
 
 class UserAdmin(LeafletGeoAdmin):
-    list_display = ('email', 'first_name', 'last_name', 'status', 'type')
+    list_display = ('id', 'email', 'first_name', 'last_name', 'status', 'type')
     list_filter = ('type',)
 
 
