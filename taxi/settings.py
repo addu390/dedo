@@ -9,7 +9,7 @@ SECRET_KEY = 'z*$8i%uvmm+@__w=b+1e)t@uf$=ix)=it76rn(x^uj=hcc#=0+'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.gis',
