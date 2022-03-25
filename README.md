@@ -60,9 +60,18 @@ docker run --name=postgis -d -e POSTGRES_USER=<database-username> -e POSTGRES_PA
 
 - Run migrations:
 
+Local machine set-up
+
 ```
 python3 manage.py makemigrations
 python3 manage.py migrate
+```
+
+Docker set-up
+
+```
+docker-compose exec web python3.9 manage.py makemigrations core
+docker-compose exec web python3.9 manage.py migrate
 ```
 
 - Start Server
@@ -71,7 +80,7 @@ python3 manage.py migrate
   
 <hr>
 
-Common Issues:
+## Common Issues:
 
 - Permission denied on Linux: `sudo chmod 666 /var/run/docker.sock`
 - Install Git on remote server: `sudo yum install git`
