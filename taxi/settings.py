@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'leaflet',
     'rest_framework',
     'rest_framework_gis',
+    'corsheaders',
     'core'
 ]
 
@@ -34,7 +35,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = ['*']
 
 ROOT_URLCONF = 'taxi.urls'
 
@@ -55,7 +62,7 @@ TEMPLATES = [
 ]
 
 LEAFLET_CONFIG = {
-        'DEFAULT_CENTER': (44.638569, -63.586262),
+    'DEFAULT_CENTER': (44.638569, -63.586262),
     'DEFAULT_ZOOM': 18,
     'MAX_ZOOM': 20,
     'MIN_ZOOM': 3,
