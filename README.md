@@ -68,3 +68,13 @@ python3 manage.py migrate
 - Start Server
     - Create a new file `.env` at the root of the project with the contents of `.env.example` with the correct values.
     - Start Development Server: `python3 manage.py runserver`
+  
+<hr>
+
+Common Issues:
+
+- Permission denied on Linux: `sudo chmod 666 /var/run/docker.sock`
+- Install Git on remote server: `sudo yum install git`
+- Hostname(s)
+  - Local MySQL server: `host.docker.internal`
+  - Docker MySQL server in same network: `db` 
