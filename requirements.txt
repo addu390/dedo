@@ -9,3 +9,4 @@ python-decouple==3.6
 requests==2.27.1
 djangorestframework-gis==0.18
 django-cors-headers==3.11.0
+channels==3.0.4
