@@ -9,12 +9,6 @@ SECRET_KEY = 'z*$8i%uvmm+@__w=b+1e)t@uf$=ix)=it76rn(x^uj=hcc#=0+'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = ["http://localhost:5000"]
-CORS_ALLOW_HEADERS = ['*']
-
 INSTALLED_APPS = [
     'django.contrib.gis',
     'django.contrib.admin',
@@ -40,7 +34,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'taxi.middleware.CorsMiddleware'
 ]
+
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = ["http://localhost:5000"]
+CORS_ALLOW_HEADERS = ['*']
 
 ROOT_URLCONF = 'taxi.urls'
 
