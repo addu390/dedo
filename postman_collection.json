@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"linda_george\",\n    \"password1\": \"7X7GpojdpqbR\",\n    \"password2\": \"7X7GpojdpqbR\",\n    \"first_name\": \"Linda\",\n    \"email\": \"linda.george@xmail.com\",\n    \"last_name\": \"George\"\n}",
+					"raw": "{\n    \"username\": \"kind_ness\",\n    \"password1\": \"7X7GpojdpqbR\",\n    \"password2\": \"7X7GpojdpqbR\",\n    \"first_name\": \"Kind\",\n    \"email\": \"kind_ness@xmail.com\",\n    \"last_name\": \"Ness\",\n    \"type\": \"DRIVER\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,7 +39,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"linda_george\",\n    \"password\": \"7X7GpojdpqbR\"\n}",
+					"raw": "{\n    \"username\": \"kind_ness\",\n    \"password\": \"7X7GpojdpqbR\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -83,7 +83,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"refresh\": \"<refresh-token>\"\n}",
+					"raw": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0ODgzMzA3MiwiaWF0IjoxNjQ4NzQ2NjcyLCJqdGkiOiI0N2NkZGQ1ZjA0MzU0Y2U2OTIzOWNhZGJiNThlMDdhMSIsImlkIjozLCJrZXkiOiJBVkFJTEFCTEUifQ.4q4kvdqmxnLxW9QteIlkiR71Ma1G475-5oThd40Dd5c\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -112,7 +112,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU1NjcyLCJpYXQiOjE2NDgxNTUzNzIsImp0aSI6IjYwNmRlN2Y4NWQzZjRkOWE4ZmY3YjhmZmZiN2Q1MjZmIiwiaWQiOjEsImtleSI6IkFWQUlMQUJMRSJ9.QzLWR4ZnJEFYctYAPkhz-qjnPcb07MgwQU_PA8eB94w",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4NzU3OTQzLCJpYXQiOjE2NDg3NTc2NDMsImp0aSI6IjExNWZiOTk1MTU2NDQ4ODhhYzZkYmRlZTYzY2EwYjMwIiwiaWQiOjcsImtleSI6IkFWQUlMQUJMRSJ9.wqyGsCdFjplIXJwZOvznQLomFeIbx0onrGSW8RVqlWY",
 							"type": "string"
 						}
 					]
@@ -127,7 +127,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"status\": \"REQUESTED\",\n    \"source_address\": \"1328 Robie Street, Halifax, Canada\",\n    \"destination_address\": \"5165, Hollis Street, Halifax, Canada\",\n    \"source_location\": {\"type\":\"Point\",\"coordinates\":[-63.586518,44.637895]},\n    \"destination_location\": {\"type\":\"Point\",\"coordinates\":[-63.586518,44.637895]},\n    \"destination_user\": 1\n}",
+					"raw": "{\n    \"status\": \"REQUESTED\",\n    \"source_address\": \"1567 Robie Street, Halifax, Canada\",\n    \"destination_address\": \"5165, Hollis Street, Halifax, Canada\",\n    \"source_location\": {\"type\":\"Point\",\"coordinates\":[-63.586518,44.637895]},\n    \"destination_location\": {\"type\":\"Point\",\"coordinates\":[-63.586518,44.637895]},\n    \"destination_email\": \"frank_allister@xmail.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -148,6 +148,50 @@
 			"response": []
 		},
 		{
+			"name": "Start Trip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4NzU3OTQzLCJpYXQiOjE2NDg3NTc2NDMsImp0aSI6IjExNWZiOTk1MTU2NDQ4ODhhYzZkYmRlZTYzY2EwYjMwIiwiaWQiOjcsImtleSI6IkFWQUlMQUJMRSJ9.wqyGsCdFjplIXJwZOvznQLomFeIbx0onrGSW8RVqlWY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/trip/c1727da3-0e4e-460b-ab13-e6ced5437070",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"trip",
+						"c1727da3-0e4e-460b-ab13-e6ced5437070"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Set Current Location",
 			"request": {
 				"auth": {
@@ -155,7 +199,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU1NjcyLCJpYXQiOjE2NDgxNTUzNzIsImp0aSI6IjYwNmRlN2Y4NWQzZjRkOWE4ZmY3YjhmZmZiN2Q1MjZmIiwiaWQiOjEsImtleSI6IkFWQUlMQUJMRSJ9.QzLWR4ZnJEFYctYAPkhz-qjnPcb07MgwQU_PA8eB94w",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4NzU3MDYxLCJpYXQiOjE2NDg3NTY3NjEsImp0aSI6IjEzYThhNTMzODlkNTRjNThiODM4OWYxZDQ3YmVmOGU2IiwiaWQiOjYsImtleSI6IkFWQUlMQUJMRSJ9.sxJkyp7VDWNmFjoWl-bVKr3vCN86-5JSYCFpZcUSfS8",
 							"type": "string"
 						}
 					]
@@ -164,7 +208,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"current_location\": {\n        \"type\": \"Point\",\n        \"coordinates\": [-123.0208, 44.0464]\n    }\n}",
+					"raw": "{\n    \"current_location\": {\n        \"type\": \"Point\",\n        \"coordinates\": [-63.586518, 44.637895]\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -192,7 +236,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU1NjcyLCJpYXQiOjE2NDgxNTUzNzIsImp0aSI6IjYwNmRlN2Y4NWQzZjRkOWE4ZmY3YjhmZmZiN2Q1MjZmIiwiaWQiOjEsImtleSI6IkFWQUlMQUJMRSJ9.QzLWR4ZnJEFYctYAPkhz-qjnPcb07MgwQU_PA8eB94w",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4NzU2NDgxLCJpYXQiOjE2NDg3NTYxODEsImp0aSI6IjQ0NWZkZjM0NjUwMzQwODI4NTE4ZjZhYjJkOTQ5NWY0IiwiaWQiOjUsImtleSI6IkJVU1kifQ.Ze619zMbqbP4eNhALAYNM9C_08ZcJkKpQUydOCc_cZQ",
 							"type": "string"
 						}
 					]
@@ -220,7 +264,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU1NjcyLCJpYXQiOjE2NDgxNTUzNzIsImp0aSI6IjYwNmRlN2Y4NWQzZjRkOWE4ZmY3YjhmZmZiN2Q1MjZmIiwiaWQiOjEsImtleSI6IkFWQUlMQUJMRSJ9.QzLWR4ZnJEFYctYAPkhz-qjnPcb07MgwQU_PA8eB94w",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4NzQ3NDEzLCJpYXQiOjE2NDg3NDcxMTMsImp0aSI6IjQ0OTcwMTE3Zjk1MzQ1NmE5YzkyYTA1NzJkM2VlOWQ3IiwiaWQiOjMsImtleSI6IkFWQUlMQUJMRSJ9.Ex5q73yc9M41nYFuiRpBVz8ZSbbduu648PA-2pw3lsI",
 							"type": "string"
 						}
 					]
@@ -228,14 +272,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/v1/trip/90163196-9599-4243-9ef1-368989ec3b60",
+					"raw": "{{host}}/v1/trip/7e254194-26ca-4495-bef1-75537f58fba6",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"v1",
 						"trip",
-						"90163196-9599-4243-9ef1-368989ec3b60"
+						"7e254194-26ca-4495-bef1-75537f58fba6"
 					]
 				}
 			},
