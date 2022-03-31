@@ -5,7 +5,7 @@ from leaflet.admin import LeafletGeoAdmin
 from .service import get_available_drivers
 
 
-def start_ride(modeladmin, request, queryset):
+def assign_driver(modeladmin, request, queryset):
     trips = queryset
     radius = [3, 5, 10, 17, 25]
     for trip in trips:
@@ -29,7 +29,7 @@ class TripAdmin(LeafletGeoAdmin):
     list_display = ('source_user', 'destination_user', 'driver', 'source_address', 'destination_address', 'status')
     list_filter = ('status', 'updated_at')
     readonly_fields = ('id', 'created_at', 'updated_at')
-    actions = [start_ride]
+    actions = [assign_driver]
 
 
 admin.site.register(User, UserAdmin)

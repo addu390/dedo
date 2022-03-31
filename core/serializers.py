@@ -52,12 +52,11 @@ class TripSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Trip
         fields = ("id", "status", "source_address", "destination_address", "source_location", "destination_location",
-                  "source_user", "destination_user")
+                  "source_user", "destination_user", "driver")
         read_only_fields = ('id', 'created', 'updated',)
 
 
-class NestedTripSerializer(serializers.ModelSerializer):
+class TripModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Trip
         fields = '__all__'
-        depth = 1
