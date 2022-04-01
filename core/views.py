@@ -23,6 +23,16 @@ class Login(TokenObtainPairView):
     serializer_class = LoginSerializer
 
 
+class UserDetails(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(self, request):
+        user_id = request.user.id
+        user_object = get_object_or_404(User, id=user_id)
+        serializer = UserSerializer(user_object)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
 class UserLocation(APIView):
     permission_classes = (permissions.IsAuthenticated,)
 

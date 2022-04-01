@@ -39,7 +39,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"kind_ness\",\n    \"password\": \"7X7GpojdpqbR\"\n}",
+					"raw": "{\n    \"username\": \"frank_allister\",\n    \"password\": \"7X7GpojdpqbR\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,6 +54,46 @@
 					"path": [
 						"v1",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4Nzc5Mjk1LCJpYXQiOjE2NDg3Nzg5OTUsImp0aSI6ImUyMGI2YjFjODRkODQ3NzViYTMwOTM1NmRiMTFhOTA4IiwiaWQiOjUsImtleSI6IkJVU1kifQ.X8o16e45rxsLou4mtrpJVn42YGyGrm22WFOEjsiodvc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"kind_ness\",\n    \"password\": \"7X7GpojdpqbR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"user"
 					]
 				}
 			},
