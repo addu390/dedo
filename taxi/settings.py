@@ -120,7 +120,7 @@ REST_FRAMEWORK = {
 # GEOS_LIBRARY_PATH = '/opt/homebrew/opt/geos/lib/libgeos_c.dylib'
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1),
     'USER_ID_CLAIM': 'id',
 }
