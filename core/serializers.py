@@ -51,7 +51,7 @@ class TripSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Trip
-        fields = ("id", "status", "source_address", "destination_address", "source_location", "destination_location",
+        fields = ("id", "status", "item_type", "source_address", "destination_address", "source_location", "destination_location",
                   "source_user", "destination_user", "driver")
         read_only_fields = ('id', 'created', 'updated',)
 
