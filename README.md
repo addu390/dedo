@@ -1,11 +1,9 @@
-# DeDo for Secure Delivery (Work In Progress)
+# DeDo for Secure Delivery
+A sample project using Post GIS and Leaflet; blog post on [django-postgis](https://www.pyblog.xyz/django-postgis)
 
-## The Problem 
-
-<img src="./images/problem.png" width="60%">
-
-## The Solution
-<img src="./images/solution.png" width="60%">
+| The Problem | The Solution |
+| -- | -- |
+| <img src="./images/problem.png"> | <img src="./images/solution.png"> |
 
 ## Installation (Docker)
 
